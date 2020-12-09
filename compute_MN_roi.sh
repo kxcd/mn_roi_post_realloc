@@ -13,7 +13,7 @@ REALLOC_AMOUNT=(513 526 533 540 546 552 557 562 567 572 577 582 585 588 591 594 
 
 current_block=$(dash-cli getblockcount)
 
-blocks_per_year=$(printf '%.0f' $(echo "60/$BLOCK_TIME*24*365.25"|bc))
+blocks_per_year=$(printf '%.0f' $(echo "scale=4;60/$BLOCK_TIME*24*365.25"|bc))
 last_block_of_the_year=$((current_block+blocks_per_year))
 
 enabled_mns=$(dash-cli masternode count|jq -r .enabled)
